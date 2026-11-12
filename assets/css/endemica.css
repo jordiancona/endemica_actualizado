@@ -1,0 +1,335 @@
+/* ==========================================================================
+   Endémica — capa de uniformidad (se carga al final en todas las páginas)
+   Tokens tomados del Figma (lienzo 1920):
+   contenedor 1260px · H1 80px · H2 60px · título de tarjeta 25px · cuerpo 19px
+   ========================================================================== */
+
+:root {
+	--e-container: 1260px;
+	--e-gutter: 40px;          /* margen lateral mínimo (desktop/tablet) */
+	--e-h1: clamp(38px, 4.17vw, 80px);
+	--e-h2: clamp(30px, 3.125vw, 60px);
+	--e-h3: clamp(22px, 1.3vw, 25px);
+	--e-body: clamp(16px, 1vw, 19px);
+	--e-section-gap: clamp(48px, 5.2vw, 100px);
+	--e-pink: #ed0678;
+	--e-green: #00ae79;
+	--e-dark: #0a4231;
+}
+
+@media (max-width: 767px) {
+	:root { --e-gutter: 20px; }
+}
+
+/* --- Sin desbordamiento horizontal --------------------------------------- */
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; }
+
+/* --- Contenedor único: mismos márgenes en todas las páginas --------------- */
+.container {
+	width: min(calc(var(--e-container) + 30px), calc(100% - 2 * var(--e-gutter) + 30px)) !important;
+	max-width: none !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+/* red de seguridad por si queda algún .container anidado */
+.container .container { width: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
+.container-fluid.pdlr0 { padding-left: 0; padding-right: 0; }
+
+/* --- Cuerpo de texto ------------------------------------------------------ */
+body { font-size: var(--e-body); }
+
+/* --- Títulos uniformes ---------------------------------------------------- */
+.e-h1, .e-h2, .e-h3 {
+	font-family: 'head', 'Anton', sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: 0;
+	margin: 0 0 .35em;
+	float: none !important;
+	position: static !important;
+	width: auto !important;
+}
+.e-h1 { font-size: var(--e-h1) !important; line-height: 1.2 !important; }
+.e-h2 { font-size: var(--e-h2) !important; line-height: 1.2 !important; }
+.e-h3 { font-size: var(--e-h3) !important; line-height: 1.25 !important; font-family: 'fig3', 'Satoshi', sans-serif; }
+.e-eyebrow {
+	font-family: 'fig3', 'Satoshi', sans-serif;
+	font-size: var(--e-h3);
+	text-transform: uppercase;
+	margin: 0 0 .2em;
+}
+.e-center { text-align: center !important; }
+
+/* --- Ritmo vertical entre secciones -------------------------------------- */
+.witr_about_area, .onath_humanist_project_area, .onath-blog-area,
+.onath-touch-area, .e-section {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.e-section { margin-top: var(--e-section-gap); }
+.e-section:first-of-type { margin-top: 0; }
+
+/* --- Imágenes: proporción original, nunca estiradas ----------------------- */
+body .single_image img,
+body .witr_righti.single_image img,
+body .last_img img,
+body .img3 img,
+body .e-img {
+	height: auto !important;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+}
+.e-img-cover { width: 100% !important; height: auto !important; display: block; }
+.e-testimonial-img { display: block; width: 100%; height: auto !important; }
+
+/* --- Hero de Home: ancho completo, sin recorte raro ----------------------- */
+.em-nivo-slider-wrapper img { display: block; width: 100%; height: auto; }
+#mainSlider_id2 { max-height: none !important; }
+
+/* --- Header fijo en todas las páginas ------------------------------------- */
+.onath-main-menu {
+	position: sticky !important;
+	top: 0;
+	z-index: 1000;
+	background: #fff;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+.onath-main-menu .logo img { max-height: 56px; width: auto; }
+.onath-main-menu .onath_menu ul { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+
+/* --- Botones píldora: mismo tamaño y hover coherente ---------------------- */
+.witr_btn, .w_btn2 {
+	display: inline-block;
+	min-width: 180px;
+	padding: 14px 32px !important;
+	border-radius: 999px !important;
+	text-align: center;
+	line-height: 1.2 !important;
+	transition: filter .2s ease, transform .2s ease;
+}
+.witr_btn:hover, .w_btn2:hover { filter: brightness(.92); transform: translateY(-1px); }
+.btn { width: auto !important; }
+
+/* --- Botón ancla (volver arriba) ------------------------------------------ */
+#scrollUp {
+	display: block !important;
+	right: 24px !important;
+	bottom: 24px !important;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border-radius: 50%;
+	background: var(--e-pink) !important;
+	color: #fff !important;
+	font-size: 26px;
+	z-index: 999;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+}
+
+/* --- Selector de idioma (footer, igual al Figma) ------------------------- */
+.e-lang { position: relative; display: inline-block; font-size: 14px; }
+.e-lang__btn {
+	display: inline-flex; align-items: center; gap: 6px;
+	background: transparent; color: #fff;
+	border: 1px solid rgba(255, 255, 255, .7); border-radius: 4px;
+	padding: 4px 10px; cursor: pointer; font: inherit; line-height: 1.2;
+}
+.e-lang__menu {
+	display: none; position: absolute; left: 0; right: 0; bottom: 100%;
+	margin: 0 0 4px; padding: 0; list-style: none;
+	background: #fff; border-radius: 4px; overflow: hidden; z-index: 20;
+}
+.e-lang.is-open .e-lang__menu { display: block; }
+.e-lang__menu a { display: block; padding: 6px 10px; color: var(--e-pink) !important; text-align: left; }
+.e-lang__menu a:hover { background: #fde6f1; }
+.footer-menu ul li.e-lang-li { display: inline-block; vertical-align: middle; }
+
+/* Selector de idioma en el menú superior (desktop y móvil) */
+.e-nav-lang a { font-weight: 700; }
+
+/* --- Contacto: línea Querétaro ------------------------------------------- */
+.e-queretaro {
+	color: var(--e-green);
+	text-align: center;
+	font-family: 'head', 'Anton', sans-serif;
+	font-size: var(--e-h2);
+	line-height: 1.2;
+	margin: var(--e-section-gap) auto;
+}
+
+/* --- Móvil ---------------------------------------------------------------- */
+@media (max-width: 991px) {
+	.col-lg-5, .col-lg-6, .col-lg-7 { margin-bottom: 24px; }
+	.witr_righti.single_image { justify-content: center !important; }
+	.witr_righti.single_image img { margin: 0 auto !important; max-width: 90% !important; }
+}
+@media (max-width: 767px) {
+	:root { --e-section-gap: 40px; }
+	.witr_btn, .w_btn2 { min-width: 0; width: 100%; max-width: 320px; }
+	.witr_btn_sinner { text-align: center !important; }
+	.footer-menu ul { align-items: center; }
+	.e-lang { margin: 8px 0; }
+	#scrollUp { right: 14px !important; bottom: 14px !important; }
+}
+
+/* --- Filas dentro de contenedores sin padding: evitan el desborde de 15px --- */
+.container-fluid.pdlr0 > .row,
+.container-fluid > .row { margin-left: 0; margin-right: 0; }
+.container-fluid.pdlr0 > .row > [class*="col-"] { padding-left: 0; padding-right: 0; }
+
+/* --- Footer: enlaces + selector de idioma en una sola fila ---------------- */
+.footer-menu ul.text-right { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px 28px; margin: 0; padding: 0; list-style: none; }
+.footer-menu ul.text-right li { float: none !important; display: block; padding: 0 !important; margin: 0 !important; }
+.footer-menu ul.social { justify-content: flex-end; gap: 18px; }
+@media (max-width: 991px) { .footer-menu ul.text-right { justify-content: center; } }
+
+/* --- Tarjetas de servicio: mismo alto (Figma: "cuadros del mismo tamaño") -- */
+@media (min-width: 992px) {
+	.onath_humanist_project_area .row:has(> .col-lg-4) { display: flex; flex-wrap: wrap; }
+	.onath_humanist_project_area .row > .col-lg-4 { display: flex; }
+	.onath_humanist_project_area .row > .col-lg-6:has(.witr_humanist_title) { width: 72%; }
+	.onath_humanist_project_area .row > .col-lg-6:has(.witr_humanist_btn) { width: 28%; }
+	.onath_humanist_project_area .witr_humanist_btn { text-align: right; }
+	.onath_humanist_project_area .pure-service_area,
+	.onath_humanist_project_area .service-item { width: 100%; height: 100%; }
+}
+
+/* --- Ritmo vertical de Home ------------------------------------------------ */
+.witr_brand_area { margin-top: 24px; margin-bottom: var(--e-section-gap); }
+.onath-blog-area { margin-top: var(--e-section-gap); margin-bottom: 24px; }
+.onath_post_video_area { padding: clamp(48px, 5vw, 90px) 0; }
+.e-testi__stars { line-height: 0; }
+
+.onath_humanist_project_area { padding-bottom: var(--e-section-gap); }
+
+/* --- Testimonios de Servicios: mismas proporciones, sin estirar ------------ */
+body .single_image img.e-testimonial-card {
+	display: block;
+	width: 100%;
+	max-width: 480px;
+	aspect-ratio: 604 / 700;
+	height: auto !important;
+	object-fit: cover;
+	object-position: 50% 40%;
+	border-radius: 11px;
+	margin: 0 auto;
+}
+.social_mark > .row { margin-left: 0; margin-right: 0; }
+.social_mark > .row > [class*="col-"] { padding-left: 0; padding-right: 0; }
+
+.e-eyebrow { font-family: 'fig2', 'fig', sans-serif !important; font-weight: 700; letter-spacing: .04em; }
+.btn_section { padding-top: 32px; }
+body > .row { margin-left: 0; margin-right: 0; }
+body > .row > [class*="col-"] { padding-left: 0; padding-right: 0; }
+
+/* --- Nosotras: ritmo entre bloques ---------------------------------------- */
+body.e-nosotras .witr_about_area { margin-bottom: var(--e-section-gap); padding-top: 0 !important; padding-bottom: 0 !important; }
+body.e-nosotras .witr_about_area .row { display: flex; flex-wrap: wrap; align-items: center; }
+@media (max-width: 991px) { body.e-nosotras .witr_about_area .row { display: block; } }
+
+/* --- Tarjetas de testimonio como HTML (versión EN) ----------------------- */
+.e-tcard {
+	display: flex; flex-direction: column; justify-content: center;
+	max-width: 480px; margin: 0 auto; aspect-ratio: 604 / 700;
+	padding: 12% 11%; border-radius: 11px; color: #fff; box-sizing: border-box;
+}
+.e-tcard h4 { color: #fff; font-family: 'fig3', 'Satoshi', sans-serif; font-size: clamp(18px, 1.3vw, 24px); text-align: center; margin: 0 0 1em; }
+.e-tcard p { color: #fff; font-size: clamp(15px, 1vw, 19px); line-height: 1.5; margin: 0; }
+
+/* --- Menú móvil (notas del Figma): header fijo, "MENÚ" + hamburguesa centrados -- */
+@media (max-width: 990px) {
+	:root { --e-mlogo-h: 72px; }
+	.mobile_logo_area { position: sticky; top: 0; z-index: 1002; background: #fff; padding: 8px 0; }
+	.mobile_logo_area .mobile_menu_logo img { max-height: 56px; width: auto; }
+	.mbm { position: sticky; top: var(--e-mlogo-h); z-index: 1001; }
+	.mean-container .mean-bar {
+		display: flex !important; justify-content: center; align-items: center;
+		float: none !important; min-height: 52px; padding: 0 !important; text-align: center;
+	}
+	.mean-container .mean-bar::before {
+		content: "MENÚ" !important; position: static !important; font-size: 18px;
+		letter-spacing: .08em; color: #fff; margin-right: 14px; top: auto !important; left: auto !important;
+	}
+	.mean-container a.meanmenu-reveal {
+		position: static !important; float: none !important; padding: 15px 0 !important;
+		width: 28px !important; height: 22px !important; text-indent: 0; font-size: 0 !important;
+	}
+	.mean-container a.meanmenu-reveal span { height: 3px; margin-top: 5px; border-radius: 2px; }
+	.mean-container .mean-nav { max-height: calc(100vh - 130px); overflow-y: auto; }
+	.mean-container .mean-nav ul li a { font-size: 15px; text-align: center; width: 100%; padding: 1em 5%; box-sizing: border-box; }
+	.mean-container .mean-nav ul li.e-nav-lang a { color: var(--e-pink); }
+}
+@media (max-width: 767px) {
+	.icon-list-text br { display: none; }
+}
+@media (max-width: 990px) {
+	.mean-container .mean-bar { width: 100% !important; flex-wrap: wrap; }
+	.mean-container .mean-bar > .mean-nav { flex: 0 0 100%; width: 100%; order: 3; margin: 0; }
+}
+@media (max-width: 990px) {
+	.mean-container a.meanmenu-reveal span { display: none !important; }
+	.mean-container a.meanmenu-reveal {
+		width: 28px !important; height: 20px !important; padding: 16px 0 !important; box-sizing: content-box;
+		background:
+			linear-gradient(#fff, #fff) 0 0 / 100% 3px no-repeat,
+			linear-gradient(#fff, #fff) 0 50% / 100% 3px no-repeat,
+			linear-gradient(#fff, #fff) 0 100% / 100% 3px no-repeat !important;
+		background-clip: content-box !important;
+	}
+	.mean-container a.meanmenu-reveal.meanclose { background: none !important; font-size: 26px !important; line-height: 20px; text-indent: 0; text-align: center; color: #fff !important; }
+}
+@media (max-width: 990px) { .mean-container a.meanmenu-reveal { background-origin: content-box !important; } }
+
+/* --- Formulario: campos alineados en móvil ------------------------------- */
+.witr_apartment_form .witr_form_field2,
+.witr_apartment_form .witr_text_area2 { box-sizing: border-box; }
+.witr_apartment_form .witr_form_field2 input,
+.witr_apartment_form .witr_text_area2 textarea { width: 100%; box-sizing: border-box; }
+@media (max-width: 767px) {
+	.witr_apartment_form .witr_form_field2 { width: 100% !important; float: none !important; margin: 0 0 14px !important; padding: 0 !important; }
+	.witr_apartment_form .witr_form_field2 input::placeholder,
+	.witr_apartment_form .witr_text_area2 textarea::placeholder { font-size: 14px; }
+	body .witr_righti.single_image img.e-img { max-width: 240px !important; }
+}
+
+/* --- Tipografía de navegación y footer (Figma: 20px a 1920) --------------- */
+:root { --e-nav: clamp(13px, 1.04vw, 20px); }
+body .footer-bottom .footer-menu a,
+body .footer-bottom .copy-right-text p,
+body .onath-main-menu .onath_menu > ul > li > a,
+.e-lang { font-size: var(--e-nav) !important; }
+
+/* --- Hero en video ---------------------------------------------------------- */
+.e-hero { width: 100%; line-height: 0; background: #ff5a22; }
+.e-hero__video { display: block; width: 100%; height: auto; max-height: 900px; object-fit: cover; }
+
+/* --- Imágenes de sección: mismo tamaño, centradas en su espacio ------------ */
+body img.e-pic {
+	display: block; width: 100% !important; max-width: 420px !important; height: auto !important;
+	aspect-ratio: 1 / 1; object-fit: contain; margin: 0 auto !important; float: none !important; max-height: none !important;
+}
+body .single_image.witr_righti:has(.e-pic) { display: flex !important; justify-content: center; align-items: center; }
+.witr_about_area .row:has(.e-pic) { display: flex; flex-wrap: wrap; align-items: center; }
+@media (max-width: 991px) { .witr_about_area .row:has(.e-pic) { display: block; } body img.e-pic { max-width: 280px !important; } }
+
+/* --- Servicios (desktop): tarjeta de testimonio del alto del título al texto -- */
+@media (min-width: 992px) {
+	.card_seaction .witr_about_area .row { display: grid; grid-template-columns: 7fr 5fr; column-gap: 40px; align-items: stretch; }
+	.card_seaction .witr_about_area .row::before, .card_seaction .witr_about_area .row::after { display: none; }
+	.card_seaction .witr_about_area .row > .col-lg-7 { display: contents; }
+	.card_seaction .witr_about_area .row > .col-lg-5 { grid-column: 2; grid-row: 1; width: auto; float: none; padding: 0; display: flex; }
+	.card_seaction .witr_about_area .row > .col-lg-7 > .witr_text_widget { grid-column: 1; grid-row: 1; width: auto; }
+	.card_seaction .witr_about_area .row > .col-lg-7 > .witr_field2 { grid-column: 1; grid-row: 2; }
+	.card_seaction .single_image.witr_righti { width: 100%; display: flex; }
+	.card_seaction .e-tcard { max-width: none; width: 100%; height: 100%; aspect-ratio: auto; padding: 40px 12%; }
+}
+@media (min-width: 992px) {
+	.card_seaction .single_image.witr_righti { flex: 1; min-width: 0; }
+	.card_seaction .e-tcard { margin: 0; flex: 1; }
+}
+@media (min-width: 992px) { .card_seaction .witr_about_area .row > .col-lg-5 { max-width: none; } }

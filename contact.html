@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="es-MX">
 
 <head>
 
 	<meta charset="UTF-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>endemica</title>
-	<meta name="description" content="">
+	<title>Contacto | Endémica</title>
+	<meta name="description" content="Endémica Center for Social Impact: social marketing, auditoría de impacto, consultoría y capacitación para organizaciones en Latinoamérica.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon Icon -->
 	<link rel="icon" type="image/png" href="assets/images & icons/Nosotros Assets/Icon ¿por qué endémica_.png">
@@ -15,8 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/witr-animate.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/endemica.css"/>
 	<!-- modernizr js -->
 	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	<style type="text/css">
@@ -143,6 +143,7 @@
 								<li><a href="servicios.html">Servicios</a></li>
 								<li><a href="nosotras.html">Nosotras</a></li>
 								<li><a id="bolder" href="contact.html">Contacto</a></li>
+							<li class="e-nav-lang"><a href="en/contact.html" hreflang="en" lang="en">English</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -178,6 +179,7 @@
 					<li><a href="servicios.html">Servicios</a></li>
 					<li><a href="nosotras.html">Nosotras</a></li>
 					<li><a id="bolder" href="contact.html">Contacto</a></li>
+							<li class="e-nav-lang"><a href="en/contact.html" hreflang="en" lang="en">English</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -210,9 +212,7 @@
 				<div class=" col-lg-12">
 					<div class="witr_section_title">
 						<div class="witr_section_title_inner text-center">
-							<h1 style="color: #00ae79; font-weight: bolder; margin-top: 50px; float: left;">
-								¡Contáctanos!
-							</h1>
+							<h1 class="e-h1" style="color: #00ae79;">¡Contáctanos!</h1>
 						</div>
 					</div>
 				</div>
@@ -227,37 +227,32 @@
 				<div class="col-lg-12">
 					<div class="apartment_area">
 						<div class="witr_apartment_form">
-							<form action="https://api.web3forms.com/submit" method="post" id="contact-form">
-								<!-- Configuración Web3Forms -->
-								<input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
-								<input type="hidden" name="from_name" value="Endémica Web">
-								<input type="hidden" name="subject" value="Nuevo contacto desde Endémica">
-								<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+							<form action="/api/contact" method="post" id="contact-form" novalidate data-sending="ENVIANDO..." data-success="¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto." data-invalid="Revisa tu nombre y tu correo e intenta de nuevo." data-error="No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a contacto@endemicasocial.com.">
+							<!-- Campo trampa anti-spam: no lo quites -->
+							<div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"><label>No llenar<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
 
 								<div class="witr_form_controls2">
 									<div class="witr_field2">
 										<div class="witr_form_field2">
-											<span><input type="text" name="name" placeholder="NOMBRE (obligatorio)"
-													required></span>
+											<span><input type="text" name="name" placeholder="NOMBRE" autocomplete="name" required></span>
 										</div>
 										<div class="witr_form_field2">
-											<span><input type="email" name="email" placeholder="MAIL (obligatorio)"
-													required></span>
+											<span><input type="email" name="email" placeholder="MAIL" autocomplete="email" required></span>
 										</div>
 									</div>
 									<div class="witr_field2">
 										<div class="witr_form_field2">
-											<span><input type="text" name="website" placeholder="WHATSAPP"></span>
+											<span><input type="text" name="whatsapp" placeholder="WHATSAPP" inputmode="tel" autocomplete="tel"></span>
 										</div>
 										<div class="witr_form_field2">
-											<span><input type="text" name="subject"
-													placeholder="NOMBRE DE ORGANIZACIÓN O PROYECTO"></span>
+											<span><input type="text" name="organization"
+													placeholder="NOMBRE DE ORGANIZACIÓN O PROYECTO" autocomplete="organization"></span>
 										</div>
 									</div>
 									<div class="witr_field2">
 										<div class="witr_text_area2">
 											<span>
-												<textarea name="comment"
+												<textarea name="message"
 													placeholder="¿EN QUÉ TE PODEMOS APOYAR?"></textarea>
 											</span>
 										</div>
@@ -283,10 +278,12 @@
 
 
 	<div class="map">
-		<!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d19868.3717400258!2d-0.14011856824401192!3d51.503189711012105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1707599005299!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+	<div class="container"><p class="e-queretaro">¿No estás en Querétaro? ¡Tomamos proyectos en todo Hispanoamérica!</p></div>
+
+		<!--<iframe src="https://www.google.com/maps?q=Prol.+Tecnol%C3%B3gico+800,+Los+Girasoles,+76159+Santiago+de+Quer%C3%A9taro,+Qro.&amp;output=embed" title="Mapa: Prol. Tecnológico 800, Los Girasoles, Querétaro" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
 		<iframe
 			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.401037019837!2d-100.4076133!3d20.6125041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35ae83ca4ed11%3A0x8da10fe07590754d!2sProl.%20Tecnol%C3%B3gico%20800%2C%20Soriana%2C%2076159%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1708367125333!5m2!1sen!2smx"
-			width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+			title="Mapa: Prol. Tecnológico 800, Los Girasoles, Querétaro" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
 			referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 
@@ -308,6 +305,7 @@
 								<li><a href="privacy.html" style="font-size: 13px;">Políticas de Privacidad</a></li>
 								<li><a href="terms.html" style="font-size: 13px;">Términos y Condiciones</a></li>
 								<li><a href="contact.html" style="font-size: 13px;">Contáctanos</a></li>
+							<li class="e-lang-li"><div class="e-lang" data-e-lang><button type="button" class="e-lang__btn" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true">🌐</span> Español <span aria-hidden="true">▾</span></button><ul class="e-lang__menu"><li><a href="en/contact.html" hreflang="en" lang="en">English</a></li></ul></div></li>
 							</ul>
 						</div>
 					</div>
@@ -354,6 +352,7 @@
 			display: none !important;
 		}
 	</style>
-</body>
+<script id="e-lang-js">(function(){var w=document.querySelector("[data-e-lang]");if(!w)return;var b=w.querySelector("button");b.addEventListener("click",function(e){e.stopPropagation();var o=w.classList.toggle("is-open");b.setAttribute("aria-expanded",o)});document.addEventListener("click",function(){w.classList.remove("is-open");b.setAttribute("aria-expanded","false")});})();</script>
+	</body>
 
 </html>
