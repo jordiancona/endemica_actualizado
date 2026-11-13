@@ -10193,6 +10193,7 @@ background: #f25c24 none repeat scroll 0 0;
 /* } */
 .no-logo-sr .onath_menu ul {
     text-align: center;
+    position: fixed;
 }
 .no-logo-sr .onath_menu ul li {
     text-align: left;

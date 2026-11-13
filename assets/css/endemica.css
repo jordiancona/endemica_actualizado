@@ -92,13 +92,15 @@ body .e-img {
 
 /* --- Header fijo en todas las páginas ------------------------------------- */
 .onath-main-menu {
-	position: sticky !important;
+	position: fixed !important;
 	top: 0;
+	left: 0;
+	width: 100%;
 	z-index: 1000;
 	background: #fff;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
 }
-.onath-main-menu .logo img { max-height: 56px; width: auto; }
+.onath-main-menu .logo img { max-height: 56px; width: auto;  }
 .onath-main-menu .onath_menu ul { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
 
 /* --- Botones píldora: mismo tamaño y hover coherente ---------------------- */
