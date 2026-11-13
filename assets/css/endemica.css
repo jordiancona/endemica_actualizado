@@ -21,6 +21,10 @@
 	:root { --e-gutter: 20px; }
 }
 
+@media (min-width: 991px) {
+	.onath-header-top { margin-bottom: 50px; }
+}
+
 /* --- Sin desbordamiento horizontal --------------------------------------- */
 html, body { max-width: 100%; overflow-x: hidden; }
 img { max-width: 100%; }
@@ -102,6 +106,7 @@ body .e-img {
 }
 .onath-main-menu .logo img { max-height: 56px; width: auto;  }
 .onath-main-menu .onath_menu ul { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+.onath_humanist_project_area { scroll-margin-top: 120px; }
 
 /* --- Botones píldora: mismo tamaño y hover coherente ---------------------- */
 .witr_btn, .w_btn2 {
