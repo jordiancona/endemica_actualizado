@@ -333,3 +333,38 @@ body .single_image.witr_righti:has(.e-pic) { display: flex !important; justify-c
 	.card_seaction .e-tcard { margin: 0; flex: 1; }
 }
 @media (min-width: 992px) { .card_seaction .witr_about_area .row > .col-lg-5 { max-width: none; } }
+
+/* --- Foto de experta: ícono de LinkedIn en la esquina inferior izquierda -- */
+.e-expert-photo {
+	position: relative;
+	width: min(100%, 480px);
+	margin: 0 auto;
+}
+body .witr_righti.single_image .e-expert-photo > img.e-img {
+	display: block;
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	margin: 0 !important;
+}
+.e-expert-li {
+	position: absolute;
+	left: 16px;
+	bottom: 16px;
+	z-index: 2;
+	line-height: 0;
+}
+body .e-expert-photo .e-expert-li img {
+	display: block;
+	width: 40px !important;
+	height: 40px !important;
+	max-width: none !important;
+	margin: 0 !important;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .22);
+}
+@media (max-width: 767px) {
+	.e-expert-photo { width: min(100%, 240px); }
+	.e-expert-li { left: 10px; bottom: 10px; }
+	body .e-expert-photo .e-expert-li img { width: 32px !important; height: 32px !important; }
+}
