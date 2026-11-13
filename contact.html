@@ -204,6 +204,77 @@
 			padding: 70px 0 15px !important;
 		}
 	</style>
+	<style id="e-contact-form-css">
+		.e-contact-form .witr_field2 {
+			display: flex;
+			gap: 20px;
+			margin-bottom: 20px;
+		}
+		.e-contact-form .witr_form_field2 {
+			flex: 1;
+			width: auto !important;
+			float: none !important;
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+		.e-contact-form .witr_text_area2 {
+			flex: 1 1 100%;
+			width: 100%;
+		}
+		.e-contact-form input,
+		.e-contact-form textarea {
+			width: 100%;
+			border: 1px solid #d8e2dd !important;
+			border-radius: 12px !important;
+			background: #fbfdfc !important;
+			color: #0a4231;
+			font-size: 16px;
+			transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+		}
+		.e-contact-form input {
+			height: 58px;
+			padding: 0 20px !important;
+		}
+		.e-contact-form textarea {
+			height: 200px;
+			min-height: 200px;
+			padding: 18px 20px !important;
+			resize: vertical;
+		}
+		.e-contact-form input::placeholder,
+		.e-contact-form textarea::placeholder {
+			color: #71807a;
+			opacity: 1;
+		}
+		.e-contact-form input:focus,
+		.e-contact-form textarea:focus {
+			border-color: #00ae79 !important;
+			background: #fff !important;
+			box-shadow: 0 0 0 4px rgba(0, 174, 121, .12);
+			outline: none;
+		}
+		.e-contact-form .witr_con_btn2 {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		.e-contact-form .witr_con_btn2 .w_btn2 {
+			width: auto !important;
+			margin: 0 auto !important;
+		}
+		.e-contact-form .e-contact-submit {
+			display: block;
+		}
+		@media (max-width: 767px) {
+			.e-contact-form .witr_field2 {
+				display: block;
+				margin-bottom: 0;
+			}
+			.e-contact-form .witr_form_field2 {
+				margin-bottom: 14px !important;
+			}
+		}
+	</style>
 
 	<!-- onath-blog-area -->
 	<div class="onath-blog-area">
@@ -227,7 +298,7 @@
 				<div class="col-lg-12">
 					<div class="apartment_area">
 						<div class="witr_apartment_form">
-							<form action="/api/contact" method="post" id="contact-form" novalidate data-sending="ENVIANDO..." data-success="¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto." data-invalid="Revisa tu nombre y tu correo e intenta de nuevo." data-error="No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a contacto@endemicasocial.com.">
+							<form class="e-contact-form" action="/api/contact" method="post" id="contact-form" novalidate data-sending="ENVIANDO..." data-success="¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto." data-invalid="Revisa tu nombre y tu correo e intenta de nuevo." data-error="No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a contacto@endemicasocial.com.">
 							<!-- Campo trampa anti-spam: no lo quites -->
 							<div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"><label>No llenar<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
 
@@ -257,7 +328,7 @@
 											</span>
 										</div>
 									</div>
-									<div class="witr_field2">
+									<div class="witr_field2 e-contact-submit">
 										<div class=" witr_con_btn2">
 											<button class="w_btn2" type="submit" name="ok">CONTÁCTANOS</button>
 										</div>
