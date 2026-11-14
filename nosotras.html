@@ -256,6 +256,15 @@
 		}
 
 		@media (min-width: 992px) {
+			.e-expert-row > .col-lg-6 {
+				display: flex;
+				align-items: center;
+			}
+
+			.e-expert-row .witr_text_widget {
+				width: 100%;
+			}
+
 			.e-kayla-row > .col-lg-6:first-child {
 				padding-right: 0;
 			}
@@ -268,6 +277,11 @@
 				margin-left: 0;
 				margin-right: 0;
 			}
+		}
+
+		#contenedor-fabiola,
+		#contenedor-kayla {
+			text-align: justify;
 		}
 	</style>
 
@@ -523,6 +537,17 @@
 		<div class="container">
 			<div class="row e-expert-row e-kayla-row">
 				<div class="col-lg-6 col-md-12 col-sm-12">
+					<div class="single_image witr_righti">
+						<div class="e-expert-photo">
+							<img src="img/Nuestras Expertas Kayla.png" alt="Kayla Defino" class="e-img" />
+							<a class="e-expert-li" href="https://www.linkedin.com/in/kayla-defino-7b5303138/"
+								target="_blank" rel="noopener noreferrer">
+								<img src="img/Nuestras Expertas Icon LinkedIn.png" alt="LinkedIn de Kayla Defino" />
+							</a>
+						</div>
+						</div>
+					</div>
+				<div class="col-lg-6 col-md-12 col-sm-12">
 					<div class="witr_text_widget witr_about_widget">
 						<div class="witr_text_widget_inner">
 							<h2 class="e-h3" style="
@@ -541,22 +566,11 @@
 							</style>
 							<!-- Aquí insertamos el contenido del archivo text_file.html -->
 							<div class="exoert-icon" id="contenedor-kayla"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-12 col-sm-12">
-					<div class="single_image witr_righti">
-						<div class="e-expert-photo">
-							<img src="img/Nuestras Expertas Kayla.png" alt="Kayla Defino" class="e-img" />
-							<a class="e-expert-li" href="https://www.linkedin.com/in/kayla-defino-7b5303138/"
-								target="_blank" rel="noopener noreferrer">
-								<img src="img/Nuestras Expertas Icon LinkedIn.png" alt="LinkedIn de Kayla Defino" />
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<style type="text/css">
 		.witr_con_btn2 .w_btn2 {
