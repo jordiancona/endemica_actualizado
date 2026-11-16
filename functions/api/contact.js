@@ -49,9 +49,16 @@ export async function onRequestPost({ request, env }) {
   }
 
   // Anti-spam: campo trampa (los humanos no lo ven) y tiempo mínimo de llenado
+  // Si el campo honeypot tiene contenido, asumimos que es un bot y fingimos éxito
   if (clean(data.hp, 50)) return json({ ok: true }); // fingimos éxito
+  
   const elapsed = Number(data.t);
+  // Validación de tiempo: si el formulario se envió en menos de 2000ms, es probable que sea un bot
   if (Number.isFinite(elapsed) && elapsed >= 0 && elapsed < 2000) return json({ ok: true });
+  
+  // Nota: Para producción, se recomienda agregar rate limiting en Cloudflare Dashboard
+  // para prevenir envíos masivos del formulario. Límites sugeridos: 5 envíos por minuto
+  // por IP, con ventana de reseteo de 60 segundos.
 
   const name = oneLine(data.name, 120);
   const email = oneLine(data.email, 200);

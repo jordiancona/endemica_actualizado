@@ -1,0 +1,27 @@
+# Cloudflare Pages Functions environment secrets
+/functions/api/.env*
+
+# Dependency lock files (if used)
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+# Build outputs
+/dist
+/build
+
+# IDE files
+/.vscode
+/.idea
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary
+tmp/
+temp/
