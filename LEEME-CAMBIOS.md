@@ -9,7 +9,6 @@ Variables de entorno (Settings → Environment variables):
 Función: `functions/api/contact.js`. Protección: campo trampa + tiempo mínimo (sin Turnstile).
 
 ## Seguridad aplicada
-
 ### Headers de seguridad (`_headers`)
 - Se agregó archivo `_headers` en la raíz del proyecto para que Cloudflare Pages sirva headers de seguridad:
   - `Content-Security-Policy`: restringe fuentes de scripts, styles, imágenes, conexiones y frames
