@@ -19,6 +19,24 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/endemica.css"/>
 	<!-- modernizr js -->
 	<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	<script>
+		fetch("text_file_en.html") // Archivo de textos en inglés
+			.then((response) => response.text())
+			.then((data) => {
+				// Se crea el DOM virtual para analizar el contenido del archivo
+				const parser = new DOMParser();
+				const doc = parser.parseFromString(data, "text/html");
+
+				// se extrae cada bloque por su ID y se inserta en el DOM
+				document.getElementById("container-endemica").innerHTML = doc.getElementById("text-endemica").innerHTML;
+				document.getElementById("container-area").innerHTML = doc.getElementById("text-area").innerHTML;
+				document.getElementById("container-fabiola").innerHTML = doc.getElementById("text-fabiola").innerHTML;
+				document.getElementById("container-kayla").innerHTML = doc.getElementById("text-kayla").innerHTML;
+			})
+			.catch((error) => {
+				console.error("Error al cargar el archivo:", error);
+			});
+	</script>
 	<style type="text/css">
 		.social_mark {
 			height: 400px;
@@ -194,13 +212,11 @@
 		<div class="menu_area mobile-menu">
 			<nav>
 				<ul class="sub-menu">
-					<li>
-						<a href="index.html">Home</a>
-					</li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="servicios.html">Services</a></li>
 					<li><a  id="bolder" href="nosotras.html">About Us</a></li>
 					<li><a href="contact.html">Contact</a></li>
-							<li class="e-nav-lang"><a href="../nosotras.html" hreflang="es" lang="es">Español</a></li>
+					<li class="e-nav-lang"><a href="../nosotras.html" hreflang="es" lang="es">Español</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -258,11 +274,8 @@
 				
 				<div class="col-lg-7 col-md-12 col-sm-12">
 					<div class="witr_text_widget witr_about_widget">
-						<div class="witr_text_widget_inner">
-							 <br><br><br>
-							<h2 class="e-h2" style="color: #f25c24;">Why Endémica?</h2>
-
-							<p style="color:#0a4231;">Endémica was founded in 2013 with the conviction that there are no two equal projects, communities, or realities. <br><br> Since then, it has been clear to us that we were advocating for NON-STANDARDIZATION, as trying to fit into the same indicators made us lose sight of the uniqueness of each person, project, solution, context, and moment. We decided that our work would always be customized, making each occasion of working with an organization an opportunity to offer a solution that considered the common denominators and drew from the unique factors of each project. <br><br> ENDÉMICA embodies that unique form of adaptation and exclusivity that we see in every person, project, and organization. <br><br> Today, the same conviction leads us to understand that we are a consultancy that only works with tailor-made solutions, because standardizing impact means losing what makes each proposal unique. At Endémica, we respect the individuality and unique character of those who work with us.</p>
+						<div class="witr_text_widget_inner" id="container-endemica">
+							<!-- The content from text_file_en.html will be inserted here -->
 						</div>
 					</div>
 				</div>
@@ -276,10 +289,9 @@
 
 				<div class="col-lg-7 col-md-12 col-sm-12">
 					<div class="witr_text_widget witr_about_widget">
-						<div class="witr_text_widget_inner">
-							<h2 class="e-h2" style="color: #ffbc14;">Center for Social Impact</h2>
-
-							<p style="color:#0a4231;">Our passion lies in working with impact in the field, in communication, and in strategies. <br><br> We are excited to develop creative models so that our clients' impact reaches as far as it needs to. <br><br> That's why we are expanding our range of services, transforming from a social consultancy to a center dedicated to promoting the use and application of impact. <br><br>At ENDÉMICA, we ensure that your impact captivates stakeholders.</p>
+						<div class="witr_text_widget_inner" id="container-area">
+							<!-- The content from text_file_en.html will be inserted here -->
+							
 						</div>
 					</div>
 				</div>
@@ -443,17 +455,8 @@
 									color: #0a4231;
 								}
 							</style>
-							<div class="exoert-icon">
-								<ul class="icon-list-items">
-									<li class="list">Co-founder of Endémica Center for Social Impact</li>
-									<li class="list">Founder of KBAL, a technology company in the automotive service industry.</li>
-									<li class="list">Co-founder and Vice President of the National Society of Social Entrepreneurs in Mexico (2017-2021)</li>
-									<li class="list">Consulting partner of Major's Office for Latin Affairs in Washington DC (2014-2023)</li>
-									<li class="list">Consulting partner of Outlier Research &amp; Evaluation at the University of Chicago (2018-2022)</li>
-									<li class="list">YLAI 2018 Award recipient for Latin America</li>
-									<li class="list">Consultant for UN Habitat and USAID, UN Women, New Ventures, Tecnológico de Monterrey, IntegraRSE, and Mentora Empresas Sociales y de Impacto</li>
-								</ul>
-								<p style="color:#0a4231; margin-top: 24px;">“I am passionate about discussing social impact and firmly believe that impact investments will transform the way we build social projects. <br><br>Throughout my professional journey, I have discovered that discussing social impact opens a conversation about a whole universe full of possibilities and methodologies. Reflecting on this, and combining the experiences and learnings from all the projects I have collaborated on, I see that my passion has directed me towards addressing social impact through the sphere of social marketing, impact-driven marketing, impact communication, and social entrepreneurship models.”</p>
+							<div class="exoert-icon" id="container-fabiola">
+								<!-- The content from text_file_en.html will be inserted here -->
 							</div>
 						</div>
 					</div>
@@ -491,20 +494,9 @@
 									color: #0a4231;
 								}
 							</style>
-							<div class="exoert-icon">
-								<ul class="icon-list-items">
-									<li class="list">Co-founder of Endémica Center for Social Impact</li>
-									<li class="list">Consultant for Government Affairs and Social Impact in the<br>
-										USA at Sthanki Strategies (2023-present)</li>
-									<li class="list">Consultant on Immigration Policy at Grupo Masa<br>
-										(2022-2023)</li>
-									<li class="list">Grant Writing Diploma from San Diego State University<br>
-										(2023)</li>
-									<li class="list">Master's Degree in International Relations with a specialization in<br>
-										Latin American Studies from San Francisco State University (2020)</li>
-									<li class="list">Community Impact Project Supervisor at Amigos de las<br>
-										Américas in Mérida, Mexico (2015-2016)</li>
-								</ul>
+							<div class="exoert-icon" id="container-kayla">
+								<!-- The content from text_file_en.html will be inserted here -->
+
 							</div>
 						</div>
 					</div>

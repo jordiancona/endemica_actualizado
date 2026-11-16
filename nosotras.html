@@ -20,7 +20,7 @@
 	<!-- modernizr js -->
 	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	<script>
-		fetch("text_file.html")
+		fetch("text_file.html") // Archivo de texto en español
 			.then((response) => response.text())
 			.then((data) => {
 				// Se crea el DOM virtual para analizar el contenido del archivo
@@ -28,14 +28,10 @@
 				const doc = parser.parseFromString(data, "text/html");
 
 				// se extrae cada bloque por su ID y se inserta en el DOM
-				document.getElementById("contenedor-endemica").innerHTML =
-					doc.getElementById("texto-endemica").innerHTML;
-				document.getElementById("contenedor-area").innerHTML =
-					doc.getElementById("texto-area").innerHTML;
-				document.getElementById("contenedor-fabiola").innerHTML =
-					doc.getElementById("texto-fabiola").innerHTML;
-				document.getElementById("contenedor-kayla").innerHTML =
-					doc.getElementById("texto-kayla").innerHTML;
+				document.getElementById("contenedor-endemica").innerHTML = doc.getElementById("texto-endemica").innerHTML;
+				document.getElementById("contenedor-area").innerHTML = doc.getElementById("texto-area").innerHTML;
+				document.getElementById("contenedor-fabiola").innerHTML = doc.getElementById("texto-fabiola").innerHTML;
+				document.getElementById("contenedor-kayla").innerHTML = doc.getElementById("texto-kayla").innerHTML;
 			})
 			.catch((error) => {
 				console.error("Error al cargar el archivo:", error);
