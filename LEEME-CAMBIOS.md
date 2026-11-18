@@ -11,7 +11,7 @@ Función: `functions/api/contact.js`. Protección: campo trampa + tiempo mínimo
 ## Seguridad aplicada
 ### Headers de seguridad (`_headers`)
 - Se agregó archivo `_headers` en la raíz del proyecto para que Cloudflare Pages sirva headers de seguridad:
-  - `Content-Security-Policy`: restringe fuentes de scripts, styles, imágenes, conexiones y frames
+  - `Content-Security-Policy`: restringe fuentes de scripts, styles, imágenes, conexiones y frames; permite los iframes de Google Maps usados en la página de contacto
   - `X-Content-Type-Options: nosniff`: previene MIME-type sniffing
   - `X-Frame-Options: DENY`: previene clickjacking
   - `Referrer-Policy: strict-origin-when-cross-origin`: controla información del referrer
