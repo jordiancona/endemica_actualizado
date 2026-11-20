@@ -58,8 +58,8 @@ $smtpUser = getenv('SMTP_USER') ?: 'administrativo@endemicasocial.com';
 $smtpPass = getenv('SMTP_PASS') ?: '';
 $fromAddr = getenv('SMTP_FROM') ?: 'administrativo@endemicasocial.com';
 $fromName = getenv('SMTP_FROM_NAME') ?: 'Sitio web Endémica Social';
-$toAddr   = getenv('CONTACT_TO') ?: 'administrativo@endemicasocial.com';
-$toName   = getenv('CONTACT_TO_NAME') ?: 'Administración Endémica Social';
+$toAddr   = getenv('CONTACT_TO') ?: 'contacto@endemicasocial.com';
+$toName   = getenv('CONTACT_TO_NAME') ?: 'Contacto Endémica Social';
 
 if ($smtpPass === '') {
     error_log('Error PHPMailer en mail.php: SMTP_PASS no está configurada');
@@ -112,6 +112,7 @@ try {
 
     http_response_code(200);
     echo json_encode(['ok' => true, 'message' => 'Mensaje enviado correctamente.']);
+    error_log("Correo enviado desde mail.php: {$safeNombre} <{$safeEmail}> - {$safeAsunto}");
 } catch (Exception $e) {
     error_log('Error PHPMailer en mail.php: ' . $mail->ErrorInfo);
     http_response_code(500);
