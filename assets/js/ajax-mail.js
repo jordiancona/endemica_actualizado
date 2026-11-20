@@ -10,7 +10,7 @@ $(function () {
 			sending: form.data('sending') || 'ENVIANDO...',
 			ok: form.data('success') || '¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.',
 			invalid: form.data('invalid') || 'Revisa tu nombre y tu correo e intenta de nuevo.',
-			error: form.data('error') || 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a contacto@endemicasocial.com.'
+			error: form.data('error') || 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a endemicasocial@gmail.com.'
 		};
 
 		form.on('submit', function (e) {

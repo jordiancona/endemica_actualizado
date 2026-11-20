@@ -4,7 +4,7 @@
 Variables de entorno (Settings → Environment variables):
 - `ZEPTOMAIL_TOKEN` (secret): token de envío de ZeptoMail (con o sin prefijo `Zoho-enczapikey`).
 - `FROM_EMAIL`: remitente en un dominio verificado en ZeptoMail (SPF/DKIM).
-- `TO_EMAIL` (opcional): por defecto `contacto@endemicasocial.com`.
+- `TO_EMAIL` (opcional): por defecto `endemicasocial@gmail.com`.
 - `ZEPTOMAIL_API_URL` (opcional): según región (por defecto `https://api.zeptomail.com/v1.1/email`).
 Función: `functions/api/contact.js`. Protección: campo trampa + tiempo mínimo (sin Turnstile).
 

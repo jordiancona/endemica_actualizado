@@ -6,11 +6,11 @@
 //                     Pégalo tal cual lo da ZeptoMail; si empieza con "Zoho-enczapikey " se respeta.
 //   FROM_EMAIL        (obligatorio)          Remitente en un dominio verificado en ZeptoMail,
 //                     por ejemplo: no-reply@endemicasocial.com
-//   TO_EMAIL          (opcional)             Destino. Por defecto: contacto@endemicasocial.com
+//   TO_EMAIL          (opcional)             Destino. Por defecto: endemicasocial@gmail.com
 //   ZEPTOMAIL_API_URL (opcional)             Por defecto https://api.zeptomail.com/v1.1/email
 //                     (cambia el dominio si tu cuenta está en otra región: .eu, .in, .com.au, etc.)
 
-const DEFAULT_TO = 'contacto@endemicasocial.com';
+const DEFAULT_TO = 'endemicasocial@gmail.com';
 const DEFAULT_API = 'https://api.zeptomail.com/v1.1/email';
 
 const json = (body, status = 200) =>
