@@ -1,4 +1,4 @@
-// Formulario de contacto nativo: envía a /api/contact (Cloudflare Pages Function).
+// Formulario de contacto nativo: envía a mail.php en el VPS.
 $(function () {
 	$('form#contact-form').each(function () {
 		var form = $(this);
@@ -10,7 +10,7 @@ $(function () {
 			sending: form.data('sending') || 'ENVIANDO...',
 			ok: form.data('success') || '¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.',
 			invalid: form.data('invalid') || 'Revisa tu nombre y tu correo e intenta de nuevo.',
-			error: form.data('error') || 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a endemicasocial@gmail.com.'
+			error: form.data('error') || 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a administrativo@endemicasocial.com.'
 		};
 
 		form.on('submit', function (e) {
@@ -28,7 +28,7 @@ $(function () {
 			btn.prop('disabled', true).text(t.sending);
 			msg.removeClass('success error').text('');
 
-			fetch('/api/contact', {
+			fetch('/mail.php', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)

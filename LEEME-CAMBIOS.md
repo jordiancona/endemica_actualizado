@@ -1,12 +1,9 @@
 # Cambios aplicados (Endémica)
 
-## Configuración requerida en Cloudflare Pages (formulario)
-Variables de entorno (Settings → Environment variables):
-- `ZEPTOMAIL_TOKEN` (secret): token de envío de ZeptoMail (con o sin prefijo `Zoho-enczapikey`).
-- `FROM_EMAIL`: remitente en un dominio verificado en ZeptoMail (SPF/DKIM).
-- `TO_EMAIL` (opcional): por defecto `endemicasocial@gmail.com`.
-- `ZEPTOMAIL_API_URL` (opcional): según región (por defecto `https://api.zeptomail.com/v1.1/email`).
-Función: `functions/api/contact.js`. Protección: campo trampa + tiempo mínimo (sin Turnstile).
+## Configuración del formulario
+El formulario se envía desde `mail.php` mediante el servicio de correo configurado en el VPS.
+El destinatario está configurado como `administrativo@endemicasocial.com`.
+Protecciones: campo trampa y tiempo mínimo de llenado (sin Turnstile).
 
 ## Seguridad aplicada
 ### Headers de seguridad (`_headers`)
@@ -24,17 +21,10 @@ Función: `functions/api/contact.js`. Protección: campo trampa + tiempo mínimo
   - Outputs de build (`/dist`, `/build`)
   - Archivos de IDE y sistemas operativos
 
-### Mejora en `functions/api/contact.js`
-- Se añadieron comentarios documentando la protección anti-spam:
-  - Campo honeypot (`hp`): si tiene contenido, se asume bot y se finge éxito
-  - Tiempo de llenado: envíos < 2000ms son probablemente bots
-  - Recomendación de rate limiting en Cloudflare Dashboard:
-    - Límite sugerido: 5 envíos por minuto por IP
-    - Ventana de reseteo: 60 segundos
-
-### Protección de secrets
-- Las variables `ZEPTOMAIL_TOKEN` y `FROM_EMAIL` deben configurarse como secrets en Cloudflare Pages > Settings > Variables and Secrets
-- Ahora están protegidas en `.gitignore` para evitar commits accidentales
+### Protección anti-spam en `mail.php`
+- Campo honeypot (`hp`): si tiene contenido, se finge éxito.
+- Validación de nombre y correo electrónico.
+- Validación del método HTTP y sanitización de los campos.
 
 ## Estructura
 - `assets/css/endemica.css`: capa final con tokens del Figma (contenedor 1260px, H1 80px / H2 60px, imágenes sin deformar, header fijo, menú móvil, selector de idioma).
